@@ -1,0 +1,46 @@
+version: "2.0"
+
+services:
+  couchpotato:
+    image: linuxserver/couchpotato
+    expose:
+      - port: 5050
+        as: 5050
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=d57d24c16ffe5ba1f3cd53d533d6f13f
+      - TZ=Europe/London
+
+profiles:
+  compute:
+    couchpotato:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        couchpotato:
+          denom: uakt
+          amount: 100000
+deployment:
+  couchpotato:
+    akash:
+      profile: couchpotato
+      count: 1

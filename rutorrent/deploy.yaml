@@ -1,0 +1,57 @@
+version: "2.0"
+
+services:
+  rutorrent:
+    image: linuxserver/rutorrent
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 5000
+        as: 5000
+        to:
+          - global: true
+      - port: 51413
+        as: 51413
+        to:
+          - global: true
+      - port: 6881
+        as: 6881
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=8b59514d01b252ce9b9c821412c85b36
+
+profiles:
+  compute:
+    rutorrent:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        rutorrent:
+          denom: uakt
+          amount: 100000
+deployment:
+  rutorrent:
+    akash:
+      profile: rutorrent
+      count: 1

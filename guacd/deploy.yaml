@@ -1,0 +1,45 @@
+version: "2.0"
+
+services:
+  guacd:
+    image: linuxserver/guacd
+    expose:
+      - port: 4822
+        as: 4822
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=89f2d1c3ba735c8a6bc52ab20e8b5f38
+
+profiles:
+  compute:
+    guacd:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        guacd:
+          denom: uakt
+          amount: 100000
+deployment:
+  guacd:
+    akash:
+      profile: guacd
+      count: 1

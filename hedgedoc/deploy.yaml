@@ -1,0 +1,58 @@
+version: "2.0"
+
+services:
+  hedgedoc:
+    image: linuxserver/hedgedoc
+    expose:
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - CMD_ALLOW_ORIGIN=['localhost']
+      - CMD_DOMAIN=localhost
+      - CMD_PORT=3000
+      - CMD_PROTOCOL_USESSL=false
+      - CMD_URL_ADDPORT=false
+      - DB_HOST="<hostname
+      - DB_HOST=<hostname
+      - DB_NAME=hedgedoc
+      - DB_PASS="<secret
+      - DB_PASS=<secret
+      - DB_PORT=3306
+      - DB_USER=hedgedoc
+      - PASSWORD=1f20d9b933805e0b35b47fd22ebf521c
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    hedgedoc:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        hedgedoc:
+          denom: uakt
+          amount: 100000
+deployment:
+  hedgedoc:
+    akash:
+      profile: hedgedoc
+      count: 1

@@ -1,0 +1,55 @@
+version: "2.0"
+
+services:
+  deluge:
+    image: linuxserver/deluge
+    expose:
+      - port: 8112
+        as: 8112
+        to:
+          - global: true
+      - port: 6881
+        as: 6881
+        to:
+          - global: true
+      - port: 6881
+        as: 6881
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - DELUGE_LOGLEVEL=error
+      - PASSWORD=244ed68c8731c45709bf894f496b3e80
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    deluge:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        deluge:
+          denom: uakt
+          amount: 100000
+deployment:
+  deluge:
+    akash:
+      profile: deluge
+      count: 1

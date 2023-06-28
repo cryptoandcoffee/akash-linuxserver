@@ -1,0 +1,50 @@
+version: "2.0"
+
+services:
+  kodi-headless:
+    image: linuxserver/kodi-headless
+    expose:
+      - port: 8080
+        as: 8080
+        to:
+          - global: true
+      - port: 9090
+        as: 9090
+        to:
+          - global: true
+      - port: 9777
+        as: 9777
+        to:
+          - global: true
+
+    env:
+      - TZ=TZ
+      - TZ=timezone
+
+profiles:
+  compute:
+    kodi-headless:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        kodi-headless:
+          denom: uakt
+          amount: 100000
+deployment:
+  kodi-headless:
+    akash:
+      profile: kodi-headless
+      count: 1

@@ -1,0 +1,66 @@
+version: "2.0"
+
+services:
+  snipe-it:
+    image: linuxserver/snipe-it
+    expose:
+      - port: 443
+        as: 443
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - APP_DEBUG=
+      - APP_ENV=
+      - APP_LOCALE=
+      - APP_URL=http://localhost:8080
+      - PASSWORD=6333735efb1446017aa148396c6642fa
+      - MAIL_ENV_ENCRYPTION=
+      - MAIL_ENV_FROM_ADDR=
+      - MAIL_ENV_FROM_NAME=
+      - MAIL_ENV_PASSWORD=
+      - MAIL_ENV_USERNAME=
+      - MAIL_PORT_587_TCP_ADDR=
+      - MAIL_PORT_587_TCP_PORT=
+      - MYSQL_DATABASE=
+      - MYSQL_PASSWORD=
+      - MYSQL_PORT_3306_TCP_ADDR=
+      - MYSQL_PORT_3306_TCP_PORT=
+      - MYSQL_USER=
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    snipe-it:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        snipe-it:
+          denom: uakt
+          amount: 100000
+deployment:
+  snipe-it:
+    akash:
+      profile: snipe-it
+      count: 1

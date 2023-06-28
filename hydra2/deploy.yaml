@@ -1,0 +1,46 @@
+version: "2.0"
+
+services:
+  hydra2:
+    image: linuxserver/hydra2
+    expose:
+      - port: 5076
+        as: 5076
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=eb176a8ff341f78f6bc88b8235f390ae
+      - TZ=Europe/London
+
+profiles:
+  compute:
+    hydra2:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        hydra2:
+          denom: uakt
+          amount: 100000
+deployment:
+  hydra2:
+    akash:
+      profile: hydra2
+      count: 1

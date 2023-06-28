@@ -1,0 +1,51 @@
+version: "2.0"
+
+services:
+  lychee:
+    image: linuxserver/lychee
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - DB_DATABASE=lychee
+      - DB_HOST=mariadb
+      - DB_PASSWORD=dbpassword
+      - DB_PORT=3306
+      - DB_USERNAME=lychee
+      - PASSWORD=702d314d377bf65e202ca6b44a75813e
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    lychee:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        lychee:
+          denom: uakt
+          amount: 100000
+deployment:
+  lychee:
+    akash:
+      profile: lychee
+      count: 1

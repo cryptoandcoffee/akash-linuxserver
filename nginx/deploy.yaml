@@ -1,0 +1,50 @@
+version: "2.0"
+
+services:
+  nginx:
+    image: linuxserver/nginx
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 443
+        as: 443
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=1ae91aba18add8cf14f1a90424d7fb62
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    nginx:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        nginx:
+          denom: uakt
+          amount: 100000
+deployment:
+  nginx:
+    akash:
+      profile: nginx
+      count: 1

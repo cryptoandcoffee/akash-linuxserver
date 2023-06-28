@@ -1,0 +1,52 @@
+version: "2.0"
+
+services:
+  bookstack:
+    image: linuxserver/bookstack
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - APP_URL=
+      - DB_DATABASE=bookstackapp
+      - DB_HOST=<yourdbhost>
+      - DB_PASS=<yourdbpass>
+      - DB_PORT=<yourdbport>
+      - DB_USER=<yourdbuser>
+      - PASSWORD=57d4e6ced44595d76bdca39a5a805bc8
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    bookstack:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        bookstack:
+          denom: uakt
+          amount: 100000
+deployment:
+  bookstack:
+    akash:
+      profile: bookstack
+      count: 1

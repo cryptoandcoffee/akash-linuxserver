@@ -1,0 +1,55 @@
+version: "2.0"
+
+services:
+  minisatip:
+    image: linuxserver/minisatip
+    expose:
+      - port: 8875
+        as: 8875
+        to:
+          - global: true
+      - port: 554
+        as: 554
+        to:
+          - global: true
+      - port: 1900
+        as: 1900
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=3d8c29b37134a3114ac02fb200e91d1c
+      - RUN_OPTS=
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    minisatip:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        minisatip:
+          denom: uakt
+          amount: 100000
+deployment:
+  minisatip:
+    akash:
+      profile: minisatip
+      count: 1

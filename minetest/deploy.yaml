@@ -1,0 +1,48 @@
+version: "2.0"
+
+services:
+  minetest:
+    image: linuxserver/minetest
+    expose:
+      - port: 30000
+        as: 30000
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - CLI_ARGS="--gameid
+      - CLI_ARGS=--gameid
+      - PASSWORD=d924e0c51cfa5ac500fc61fff8f05846
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    minetest:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        minetest:
+          denom: uakt
+          amount: 100000
+deployment:
+  minetest:
+    akash:
+      profile: minetest
+      count: 1

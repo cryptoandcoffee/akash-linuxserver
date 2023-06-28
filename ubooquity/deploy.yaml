@@ -1,0 +1,51 @@
+version: "2.0"
+
+services:
+  ubooquity:
+    image: linuxserver/ubooquity
+    expose:
+      - port: 2202
+        as: 2202
+        to:
+          - global: true
+      - port: 2203
+        as: 2203
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=917de57f4b42a34b0d9d312c0f6cd1af
+      - MAXMEM=
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    ubooquity:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        ubooquity:
+          denom: uakt
+          amount: 100000
+deployment:
+  ubooquity:
+    akash:
+      profile: ubooquity
+      count: 1

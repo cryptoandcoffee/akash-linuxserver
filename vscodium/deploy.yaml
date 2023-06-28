@@ -1,0 +1,50 @@
+version: "2.0"
+
+services:
+  vscodium:
+    image: linuxserver/vscodium
+    expose:
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 3001
+        as: 3001
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=8e79d4b1ad874f40102b90b91f903b16
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    vscodium:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        vscodium:
+          denom: uakt
+          amount: 100000
+deployment:
+  vscodium:
+    akash:
+      profile: vscodium
+      count: 1

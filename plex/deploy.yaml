@@ -1,0 +1,84 @@
+version: "2.0"
+
+services:
+  plex:
+    image: linuxserver/plex
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 32400
+        as: 32400
+        to:
+          - global: true
+      - port: 1900
+        as: 1900
+        to:
+          - global: true
+      - port: 3005
+        as: 3005
+        to:
+          - global: true
+      - port: 5353
+        as: 5353
+        to:
+          - global: true
+      - port: 8324
+        as: 8324
+        to:
+          - global: true
+      - port: 32410
+        as: 32410
+        to:
+          - global: true
+      - port: 32412
+        as: 32412
+        to:
+          - global: true
+      - port: 32413
+        as: 32413
+        to:
+          - global: true
+      - port: 32414
+        as: 32414
+        to:
+          - global: true
+      - port: 32469
+        as: 32469
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=03d57a06b6f583438a5f3aa498b678e4
+      - PLEX_CLAIM=
+      - TZ=Etc/UTC
+      - VERSION=docker
+
+profiles:
+  compute:
+    plex:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        plex:
+          denom: uakt
+          amount: 100000
+deployment:
+  plex:
+    akash:
+      profile: plex
+      count: 1

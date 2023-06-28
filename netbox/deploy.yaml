@@ -1,0 +1,66 @@
+version: "2.0"
+
+services:
+  netbox:
+    image: linuxserver/netbox
+    expose:
+      - port: 8000
+        as: 8000
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - ALLOWED_HOST=
+      - BASE_PATH=
+      - DB_HOST=
+      - DB_NAME=
+      - DB_PASSWORD=
+      - DB_PORT=
+      - DB_USER=
+      - PASSWORD=c80220cf2bf884495225c7540ed55499
+      - REDIS_DB_CACHE=
+      - REDIS_DB_TASK=
+      - REDIS_HOST=
+      - REDIS_PASSWORD=
+      - REDIS_PORT=
+      - REMOTE_AUTH_AUTO_CREATE_USER=
+      - REMOTE_AUTH_BACKEND=
+      - REMOTE_AUTH_DEFAULT_GROUPS=
+      - REMOTE_AUTH_DEFAULT_PERMISSIONS=
+      - REMOTE_AUTH_ENABLED=
+      - REMOTE_AUTH_HEADER=
+      - SUPERUSER_EMAIL=
+      - SUPERUSER_PASSWORD=
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    netbox:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        netbox:
+          denom: uakt
+          amount: 100000
+deployment:
+  netbox:
+    akash:
+      profile: netbox
+      count: 1

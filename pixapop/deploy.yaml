@@ -1,0 +1,48 @@
+version: "2.0"
+
+services:
+  pixapop:
+    image: linuxserver/pixapop
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - APP_PASSWORD=admin
+      - APP_USERNAME=admin
+      - PASSWORD=25cc4d49b25b9a261c3289a239059dc3
+      - TZ=Europe/London
+
+profiles:
+  compute:
+    pixapop:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        pixapop:
+          denom: uakt
+          amount: 100000
+deployment:
+  pixapop:
+    akash:
+      profile: pixapop
+      count: 1

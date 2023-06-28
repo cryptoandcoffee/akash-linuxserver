@@ -1,0 +1,55 @@
+version: "2.0"
+
+services:
+  emulatorjs:
+    image: linuxserver/emulatorjs
+    expose:
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 4001
+        as: 4001
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=11c5ce0374046ca8c0e16d4be0a2eadd
+      - SUBFOLDER=/
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    emulatorjs:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        emulatorjs:
+          denom: uakt
+          amount: 100000
+deployment:
+  emulatorjs:
+    akash:
+      profile: emulatorjs
+      count: 1

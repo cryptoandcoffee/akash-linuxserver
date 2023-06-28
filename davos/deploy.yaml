@@ -1,0 +1,46 @@
+version: "2.0"
+
+services:
+  davos:
+    image: linuxserver/davos
+    expose:
+      - port: 8080
+        as: 8080
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=379ebb50d13c4a2d47f85591bf33a959
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    davos:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        davos:
+          denom: uakt
+          amount: 100000
+deployment:
+  davos:
+    akash:
+      profile: davos
+      count: 1

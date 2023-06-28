@@ -1,0 +1,68 @@
+version: "2.0"
+
+services:
+  healthchecks:
+    image: linuxserver/healthchecks
+    expose:
+      - port: 8000
+        as: 8000
+        to:
+          - global: true
+      - port: 2525
+        as: 2525
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - ALLOWED_HOSTS=
+      - APPRISE_ENABLED=
+      - DEBUG=
+      - DEFAULT_FROM_EMAIL=
+      - EMAIL_HOST=
+      - EMAIL_HOST_PASSWORD=
+      - EMAIL_HOST_USER=
+      - EMAIL_PORT=
+      - EMAIL_USE_TLS=
+      - PASSWORD=78292e403f6856b5d91c703939713a05
+      - INTEGRATIONS_ALLOW_PRIVATE_IPS=
+      - PING_EMAIL_DOMAIN=
+      - REGENERATE_SETTINGS=
+      - SECRET_KEY=
+      - SITE_LOGO_URL=
+      - SITE_NAME=
+      - SITE_ROOT=
+      - SUPERUSER_EMAIL=
+      - SUPERUSER_PASSWORD=
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    healthchecks:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        healthchecks:
+          denom: uakt
+          amount: 100000
+deployment:
+  healthchecks:
+    akash:
+      profile: healthchecks
+      count: 1

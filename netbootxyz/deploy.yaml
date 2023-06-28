@@ -1,0 +1,57 @@
+version: "2.0"
+
+services:
+  netbootxyz:
+    image: linuxserver/netbootxyz
+    expose:
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 69
+        as: 69
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=3125f7f970f2a113efa9e9e955937ce5
+      - MENU_VERSION=1.9.9
+      - PORT_RANGE=30000:30010
+      - SUBFOLDER=/
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    netbootxyz:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        netbootxyz:
+          denom: uakt
+          amount: 100000
+deployment:
+  netbootxyz:
+    akash:
+      profile: netbootxyz
+      count: 1

@@ -1,0 +1,47 @@
+version: "2.0"
+
+services:
+  paperless-ng:
+    image: linuxserver/paperless-ng
+    expose:
+      - port: 8000
+        as: 8000
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=807e26eba2bc0e72755746e598145a0a
+      - REDIS_URL=
+      - TZ=America/New_York
+
+profiles:
+  compute:
+    paperless-ng:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        paperless-ng:
+          denom: uakt
+          amount: 100000
+deployment:
+  paperless-ng:
+    akash:
+      profile: paperless-ng
+      count: 1

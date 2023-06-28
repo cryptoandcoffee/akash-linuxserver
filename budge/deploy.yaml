@@ -1,0 +1,50 @@
+version: "2.0"
+
+services:
+  budge:
+    image: linuxserver/budge
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 443
+        as: 443
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=a7a4c69943be73c7d0c3f93b435a05f0
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    budge:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        budge:
+          denom: uakt
+          amount: 100000
+deployment:
+  budge:
+    akash:
+      profile: budge
+      count: 1

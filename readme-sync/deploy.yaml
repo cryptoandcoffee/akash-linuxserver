@@ -1,0 +1,50 @@
+version: "2.0"
+
+services:
+  readme-sync:
+    image: linuxserver/readme-sync
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - DOCKERHUB_PASSWORD=DOCKERHUB_PASSWORD
+      - DOCKERHUB_PASSWORD=<PASSWORD>
+      - DOCKERHUB_USERNAME=DOCKERHUB_USERNAME
+      - DOCKERHUB_USERNAME=<USERNAME>
+      - DOCKER_REPOSITORY=DOCKER_REPOSITORY
+      - DOCKER_REPOSITORY=<DOCKERHUB
+      - GIT_BRANCH=GIT_BRANCH
+      - GIT_BRANCH=<GITHUB
+      - GIT_REPOSITORY=GIT_REPOSITORY
+      - GIT_REPOSITORY=<GITHUB
+
+profiles:
+  compute:
+    readme-sync:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        readme-sync:
+          denom: uakt
+          amount: 100000
+deployment:
+  readme-sync:
+    akash:
+      profile: readme-sync
+      count: 1

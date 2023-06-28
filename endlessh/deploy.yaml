@@ -1,0 +1,51 @@
+version: "2.0"
+
+services:
+  endlessh:
+    image: linuxserver/endlessh
+    expose:
+      - port: 2222
+        as: 2222
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - BINDFAMILY=
+      - PASSWORD=2013aa07e6b5e9070577d5bf4f60d0c9
+      - LOGFILE=false
+      - MAXCLIENTS=4096
+      - MAXLINES=32
+      - MSDELAY=10000
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    endlessh:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        endlessh:
+          denom: uakt
+          amount: 100000
+deployment:
+  endlessh:
+    akash:
+      profile: endlessh
+      count: 1

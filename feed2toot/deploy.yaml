@@ -1,0 +1,43 @@
+version: "2.0"
+
+services:
+  feed2toot:
+    image: linuxserver/feed2toot
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - FEED_LIMIT=5
+      - PASSWORD=40d4ab250a2d18e4f87882db71998f87
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    feed2toot:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        feed2toot:
+          denom: uakt
+          amount: 100000
+deployment:
+  feed2toot:
+    akash:
+      profile: feed2toot
+      count: 1

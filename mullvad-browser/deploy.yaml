@@ -1,0 +1,51 @@
+version: "2.0"
+
+services:
+  mullvad-browser:
+    image: linuxserver/mullvad-browser
+    expose:
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 3001
+        as: 3001
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=9c5f06a46c71f9fbdc7a155db4510314
+      - LOCAL_NET=192.168.0.0/16
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    mullvad-browser:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        mullvad-browser:
+          denom: uakt
+          amount: 100000
+deployment:
+  mullvad-browser:
+    akash:
+      profile: mullvad-browser
+      count: 1

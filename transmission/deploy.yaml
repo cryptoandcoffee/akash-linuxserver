@@ -1,0 +1,60 @@
+version: "2.0"
+
+services:
+  transmission:
+    image: linuxserver/transmission
+    expose:
+      - port: 9091
+        as: 9091
+        to:
+          - global: true
+      - port: 51413
+        as: 51413
+        to:
+          - global: true
+      - port: 51413
+        as: 51413
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=79049591b50fc4b54c8204b8e2a7b823
+      - HOST_WHITELIST=
+      - PASS=
+      - PEERPORT=
+      - TRANSMISSION_WEB_HOME=
+      - TZ=Etc/UTC
+      - USER=
+      - WHITELIST=
+
+profiles:
+  compute:
+    transmission:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        transmission:
+          denom: uakt
+          amount: 100000
+deployment:
+  transmission:
+    akash:
+      profile: transmission
+      count: 1

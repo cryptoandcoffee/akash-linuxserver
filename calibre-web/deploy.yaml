@@ -1,0 +1,48 @@
+version: "2.0"
+
+services:
+  calibre-web:
+    image: linuxserver/calibre-web
+    expose:
+      - port: 8083
+        as: 8083
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - DOCKER_MODS=linuxserver/mods:universal-calibre
+      - PASSWORD=e5c1e6aca09a0db74bb64e0869e55c3f
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    calibre-web:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        calibre-web:
+          denom: uakt
+          amount: 100000
+deployment:
+  calibre-web:
+    akash:
+      profile: calibre-web
+      count: 1

@@ -1,0 +1,38 @@
+version: "2.0"
+
+services:
+  jenkins-builder:
+    image: linuxserver/jenkins-builder
+    expose:
+
+    env:
+      - CONTAINER_NAME=
+      - LOCAL=true
+
+profiles:
+  compute:
+    jenkins-builder:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        jenkins-builder:
+          denom: uakt
+          amount: 100000
+deployment:
+  jenkins-builder:
+    akash:
+      profile: jenkins-builder
+      count: 1

@@ -1,0 +1,49 @@
+version: "2.0"
+
+services:
+  wireguard:
+    image: linuxserver/wireguard
+    expose:
+      - port: 51820
+        as: 51820
+        to:
+          - global: true
+
+    env:
+      - ALLOWEDIPS=0.0.0.0/0
+      - INTERNAL_SUBNET=10.13.13.0
+      - LOG_CONFS=true
+      - PEERDNS=auto
+      - PEERS=1
+      - PERSISTENTKEEPALIVE_PEERS=
+      - SERVERPORT=51820
+      - SERVERURL=wireguard.domain.com
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    wireguard:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        wireguard:
+          denom: uakt
+          amount: 100000
+deployment:
+  wireguard:
+    akash:
+      profile: wireguard
+      count: 1

@@ -1,0 +1,57 @@
+version: "2.0"
+
+services:
+  domoticz:
+    image: linuxserver/domoticz
+    expose:
+      - port: 8080
+        as: 8080
+        to:
+          - global: true
+      - port: 6144
+        as: 6144
+        to:
+          - global: true
+      - port: 1443
+        as: 1443
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - DBASE="<path
+      - DBASE=<path
+      - PASSWORD=24c8acebd9a26aabc16e0fca960f990c
+      - TZ=Etc/UTC
+      - WEBROOT=domoticz
+
+profiles:
+  compute:
+    domoticz:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        domoticz:
+          denom: uakt
+          amount: 100000
+deployment:
+  domoticz:
+    akash:
+      profile: domoticz
+      count: 1

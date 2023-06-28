@@ -1,0 +1,46 @@
+version: "2.0"
+
+services:
+  readarr:
+    image: linuxserver/readarr
+    expose:
+      - port: 8787
+        as: 8787
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=0e1b51e33bc122f89d0628122636d4f7
+      - TZ=Europe/London
+
+profiles:
+  compute:
+    readarr:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        readarr:
+          denom: uakt
+          amount: 100000
+deployment:
+  readarr:
+    akash:
+      profile: readarr
+      count: 1

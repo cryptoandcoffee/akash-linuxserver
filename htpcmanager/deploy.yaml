@@ -1,0 +1,46 @@
+version: "2.0"
+
+services:
+  htpcmanager:
+    image: linuxserver/htpcmanager
+    expose:
+      - port: 8085
+        as: 8085
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=b3b540b51e29f9c9d3e4bd9d3215c454
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    htpcmanager:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        htpcmanager:
+          denom: uakt
+          amount: 100000
+deployment:
+  htpcmanager:
+    akash:
+      profile: htpcmanager
+      count: 1

@@ -1,0 +1,36 @@
+version: "2.0"
+
+services:
+  docker-compose:
+    image: linuxserver/docker-compose
+    expose:
+
+    env:
+
+profiles:
+  compute:
+    docker-compose:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        docker-compose:
+          denom: uakt
+          amount: 100000
+deployment:
+  docker-compose:
+    akash:
+      profile: docker-compose
+      count: 1

@@ -1,0 +1,99 @@
+version: "2.0"
+
+services:
+  nano:
+    image: linuxserver/nano
+    expose:
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 8075
+        as: 8075
+        to:
+          - global: true
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 3001
+        as: 3001
+        to:
+          - global: true
+      - port: 8075
+        as: 8075
+        to:
+          - global: true
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 3001
+        as: 3001
+        to:
+          - global: true
+      - port: 8075
+        as: 8075
+        to:
+          - global: true
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 3001
+        as: 3001
+        to:
+          - global: true
+
+    env:
+      - CLI_OPTIONS='--config
+      - CLI_OPTIONS=--config
+      - LIVE_GENESIS_ACCOUNT=nano_1da7hqsgp4hb55bzkptzsbntdzbyni5gyzar41a88b8fhcezoasfjkgmyk5y
+      - LIVE_GENESIS_ACCOUNT=nano_1yhkw7ducsmz5k7pskufytaxoi3kq3gyrgh489bbkxpwxn4zdefyn4rmrrkk
+      - LIVE_GENESIS_ACCOUNT=nano_xxxxxx
+      - LIVE_GENESIS_PUB=2D057DF2EB09E918D3F95B5FCA69A5FD3EA406EF7D1810106324CD7A99FAA32D
+      - LIVE_GENESIS_PUB=79F2E157B5667F1C8B6CCB6DF691DAC032B85DEC39E231D29976DCED05F5B1BE
+      - LIVE_GENESIS_PUB=GENESIS_PUBLIC
+      - LIVE_GENESIS_SIG=90DDE7B4DC038811180FF5DDE8594F1774542A7AADE3DB71A57AA38A5AED42672E1E8D7ACFAC315BDB0EB5DCB542C610B9C49B2560AE575073855259AF065509
+      - LIVE_GENESIS_SIG=BLOCK_SIGNATURE
+      - LIVE_GENESIS_SIG=D1DF3A64BB43C131944401632215569A40AAE858ACF6CB59D5C77070E69DBF6435D93807877628A8B142DBF1AC4C562CD2F4CEBEB7D15486BDB7494A6146E007
+      - LIVE_GENESIS_WORK=7fd88e48684600b7
+      - LIVE_GENESIS_WORK=c51204c6b69384cb
+      - LIVE_GENESIS_WORK=WORK_FOR_BLOCK
+      - LMDB_BOOTSTRAP_URL=http://example.com/Nano_64_version_20.7z
+      - PEER_HOST=localhost
+      - PEER_HOST=peering.linuxserver.io
+      - PEER_HOST=peering.mydomain.com
+      - TZ=Europe/London
+
+profiles:
+  compute:
+    nano:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        nano:
+          denom: uakt
+          amount: 100000
+deployment:
+  nano:
+    akash:
+      profile: nano
+      count: 1

@@ -1,0 +1,61 @@
+version: "2.0"
+
+services:
+  doplarr:
+    image: linuxserver/doplarr
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - DISCORD__MAX_RESULTS=25
+      - DISCORD__REQUESTED_MSG_STYLE=:plain
+      - DISCORD__TOKEN=
+      - PASSWORD=89472c1168814cd5e1df6730dae9c690
+      - JAVA_OPTS=
+      - JAVA_OPTS="-Xmx256m
+      - LOG_LEVEL=:info
+      - OVERSEERR__API=
+      - OVERSEERR__DEFAULT_ID=
+      - OVERSEERR__URL=http://localhost:5055
+      - PARTIAL_SEASONS=true
+      - RADARR__API=
+      - RADARR__QUALITY_PROFILE=
+      - RADARR__ROOTFOLDER=
+      - RADARR__URL=http://localhost:7878
+      - SONARR__API=
+      - SONARR__LANGUAGE_PROFILE=
+      - SONARR__QUALITY_PROFILE=
+      - SONARR__ROOTFOLDER=
+      - SONARR__URL=http://localhost:8989
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    doplarr:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        doplarr:
+          denom: uakt
+          amount: 100000
+deployment:
+  doplarr:
+    akash:
+      profile: doplarr
+      count: 1

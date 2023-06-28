@@ -1,0 +1,55 @@
+version: "2.0"
+
+services:
+  openssh-server:
+    image: linuxserver/openssh-server
+    expose:
+      - port: 2222
+        as: 2222
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=61494126f39a9bd5c7730639388bdad6
+      - PASSWORD_ACCESS=false
+      - PUBLIC_KEY_DIR=/path/to/directory/containing/_only_/pubkeys
+      - PUBLIC_KEY_FILE=/path/to/file
+      - PUBLIC_KEY_URL=https://github.com/username.keys
+      - PUBLIC_KEY=yourpublickey
+      - SUDO_ACCESS=false
+      - TZ=Etc/UTC
+      - USER_NAME=linuxserver.io
+      - USER_PASSWORD_FILE=/path/to/file
+      - USER_PASSWORD=password
+
+profiles:
+  compute:
+    openssh-server:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        openssh-server:
+          denom: uakt
+          amount: 100000
+deployment:
+  openssh-server:
+    akash:
+      profile: openssh-server
+      count: 1

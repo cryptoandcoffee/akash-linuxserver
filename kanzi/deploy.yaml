@@ -1,0 +1,48 @@
+version: "2.0"
+
+services:
+  kanzi:
+    image: linuxserver/kanzi
+    expose:
+      - port: 8000
+        as: 8000
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=14352060e4aeeaa17911b1dada60bac0
+      - INVOCATION_NAME=kanzi
+      - TZ=Europe/London
+      - URL_ENDPOINT=https://server.com/kanzi/
+
+profiles:
+  compute:
+    kanzi:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        kanzi:
+          denom: uakt
+          amount: 100000
+deployment:
+  kanzi:
+    akash:
+      profile: kanzi
+      count: 1

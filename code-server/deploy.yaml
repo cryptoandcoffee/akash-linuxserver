@@ -1,0 +1,52 @@
+version: "2.0"
+
+services:
+  code-server:
+    image: linuxserver/code-server
+    expose:
+      - port: 8443
+        as: 8443
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - DEFAULT_WORKSPACE=/config/workspace
+      - PASSWORD=c0824e550719a45e1b72fe517b1a1c25
+      - HASHED_PASSWORD=
+      - PASSWORD=password
+      - PROXY_DOMAIN=code-server.my.domain
+      - SUDO_PASSWORD_HASH=
+      - SUDO_PASSWORD=password
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    code-server:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        code-server:
+          denom: uakt
+          amount: 100000
+deployment:
+  code-server:
+    akash:
+      profile: code-server
+      count: 1

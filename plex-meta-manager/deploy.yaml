@@ -1,0 +1,48 @@
+version: "2.0"
+
+services:
+  plex-meta-manager:
+    image: linuxserver/plex-meta-manager
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=50c7bb15b646dc09e4770dd29622ea9a
+      - PMM_CONFIG=/config/config.yml
+      - PMM_NO_MISSING=False
+      - PMM_RUN=False
+      - PMM_RUN=True
+      - PMM_TEST=False
+      - PMM_TIME=03:00
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    plex-meta-manager:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        plex-meta-manager:
+          denom: uakt
+          amount: 100000
+deployment:
+  plex-meta-manager:
+    akash:
+      profile: plex-meta-manager
+      count: 1

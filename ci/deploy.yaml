@@ -1,0 +1,53 @@
+version: "2.0"
+
+services:
+  ci:
+    image: linuxserver/ci
+    expose:
+
+    env:
+      - ACCESS_KEY=<S3
+      - BASE=<alpine
+      - CI_S6_VERBOSITY=<optional,
+      - DELAY_START=<optional,
+      - DOCKER_ENV="<optional,
+      - IMAGE="linuxserver/<dockerimage>"
+      - META_TAG=<manifest
+      - PORT=<optional,
+      - S3_BUCKET=<optional,
+      - S3_REGION=<optional,
+      - SECRET_KEY=<S3
+      - SSL=<optional
+      - TAGS="<single
+      - WEB_AUTH="<optional,
+      - WEB_PATH="<optional,
+      - WEB_SCREENSHOT_DELAY=<optional,
+      - WEB_SCREENSHOT=<optional,
+
+profiles:
+  compute:
+    ci:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        ci:
+          denom: uakt
+          amount: 100000
+deployment:
+  ci:
+    akash:
+      profile: ci
+      count: 1

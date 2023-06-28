@@ -1,0 +1,56 @@
+version: "2.0"
+
+services:
+  calibre:
+    image: linuxserver/calibre
+    expose:
+      - port: 8080
+        as: 8080
+        to:
+          - global: true
+      - port: 8181
+        as: 8181
+        to:
+          - global: true
+      - port: 8081
+        as: 8081
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - CLI_ARGS=
+      - PASSWORD=08c6c4919f3018311e03454206e610d5
+      - PASSWORD=
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    calibre:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        calibre:
+          denom: uakt
+          amount: 100000
+deployment:
+  calibre:
+    akash:
+      profile: calibre
+      count: 1

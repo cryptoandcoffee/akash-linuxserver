@@ -1,0 +1,46 @@
+version: "2.0"
+
+services:
+  embystat:
+    image: linuxserver/embystat
+    expose:
+      - port: 6555
+        as: 6555
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=caaeef9cc16d5244e86d2cfcaec23278
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    embystat:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        embystat:
+          denom: uakt
+          amount: 100000
+deployment:
+  embystat:
+    akash:
+      profile: embystat
+      count: 1

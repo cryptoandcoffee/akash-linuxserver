@@ -1,0 +1,83 @@
+version: "2.0"
+
+services:
+  mastodon:
+    image: linuxserver/mastodon
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 443
+        as: 443
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - AWS_ACCESS_KEY_ID=
+      - AWS_SECRET_ACCESS_KEY=
+      - DB_HOST=db
+      - DB_NAME=mastodon
+      - DB_PASS=mastodon
+      - DB_POOL=5
+      - DB_PORT=5432
+      - DB_USER=mastodon
+      - ES_ENABLED=false
+      - ES_HOST=es
+      - ES_PASS=elastic
+      - ES_PORT=9200
+      - ES_USER=elastic
+      - PASSWORD=98dd71fa0c5278d654c6a193465d4335
+      - LOCAL_DOMAIN=example.com
+      - OTP_SECRET=
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - S3_ALIAS_HOST=
+      - S3_BUCKET=
+      - S3_ENABLED=false
+      - SECRET_KEY_BASE=
+      - SIDEKIQ_DEFAULT=false
+      - SIDEKIQ_ONLY=false
+      - SIDEKIQ_QUEUE=
+      - SIDEKIQ_THREADS=5
+      - SMTP_FROM_ADDRESS=notifications@example.com
+      - SMTP_LOGIN=
+      - SMTP_PASSWORD=
+      - SMTP_PORT=25
+      - SMTP_SERVER=mail.example.com
+      - TZ=Etc/UTC
+      - VAPID_PRIVATE_KEY=
+      - VAPID_PUBLIC_KEY=
+      - WEB_DOMAIN=mastodon.example.com
+
+profiles:
+  compute:
+    mastodon:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        mastodon:
+          denom: uakt
+          amount: 100000
+deployment:
+  mastodon:
+    akash:
+      profile: mastodon
+      count: 1

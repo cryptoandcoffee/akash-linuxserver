@@ -31,9 +31,11 @@ services:
       - ES_PASS=elastic
       - ES_PORT=9200
       - ES_USER=elastic
-      - PASSWORD=b7ac8bdf4ab514d0158d63867a50f4f7
+      - PASSWORD=67c43d6541242b59a20a905d650e7f50
       - LOCAL_DOMAIN=example.com
       - OTP_SECRET=
+      - PGID=1000
+      - PUID=1000
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - S3_ALIAS_HOST=

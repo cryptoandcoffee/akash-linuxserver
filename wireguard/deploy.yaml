@@ -16,6 +16,8 @@ services:
       - PEERDNS=auto
       - PEERS=1
       - PERSISTENTKEEPALIVE_PEERS=
+      - PGID=1000
+      - PUID=1000
       - SERVERPORT=51820
       - SERVERURL=wireguard.domain.com
       - TZ=Etc/UTC

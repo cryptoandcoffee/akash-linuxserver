@@ -19,7 +19,9 @@ services:
 
     env:
       - EXTERNALURL=yourdomain.url
-      - PASSWORD=49f2d48f574443f7aee2ca4d3ee364c4
+      - PASSWORD=11bfebf16a6ca5f85469fe7bb8c57f4b
+      - PGID=1000
+      - PUID=1000
       - SERVER_IP=0.0.0.0
       - TZ=Etc/UTC
 

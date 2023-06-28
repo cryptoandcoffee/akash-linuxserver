@@ -10,13 +10,15 @@ services:
           - global: true
 
     env:
-      - PASSWORD=9eb63ce68c67aa84330e4e73b8dbd89a
+      - PASSWORD=c44e3c9b3540798880b1d387d2b8b1ab
+      - PGID=1000
       - PMM_CONFIG=/config/config.yml
       - PMM_NO_MISSING=False
       - PMM_RUN=False
       - PMM_RUN=True
       - PMM_TEST=False
       - PMM_TIME=03:00
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

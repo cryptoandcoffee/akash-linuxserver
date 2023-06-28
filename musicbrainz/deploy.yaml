@@ -15,8 +15,10 @@ services:
 
     env:
       - BRAINZCODE=<code
-      - PASSWORD=65a3004fb02ba3b4c3732a889d66e87b
+      - PASSWORD=62e1fd49a84bb907d0c29a0375cf147b
       - NPROC=<parameter>
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
       - WEBADDRESS=<ip
 

@@ -15,7 +15,9 @@ services:
 
     env:
       - DOCKER_MODS=linuxserver/calibre-web:calibre|linuxserver/mods:lazylibrarian-ffmpeg
-      - PASSWORD=0ce3a1c12dca0cf0a8d607c8f92278c3
+      - PASSWORD=18e3809c39c3ef405d128f8b468a1229
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

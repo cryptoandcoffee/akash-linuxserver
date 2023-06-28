@@ -8,6 +8,8 @@ services:
     env:
       - CONTAINER_NAME=
       - LOCAL=true
+      - PGID=
+      - PUID=
 
 profiles:
   compute:

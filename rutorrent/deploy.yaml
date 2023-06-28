@@ -26,7 +26,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=637aab749664a981bfd06f5cd2512692
+      - PASSWORD=df17d8ac06ad0489bfc523ca82752e4a
+      - PGID=1000
+      - PUID=1000
 
 profiles:
   compute:

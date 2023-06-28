@@ -14,7 +14,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=02e3114d90f8a1ca5c039e072790233e
+      - PASSWORD=8965d4d21d6593511133967b9e48317b
+      - PGID=1000
+      - PUID=1000
       - REDIS_URL=
       - TZ=America/New_York
 

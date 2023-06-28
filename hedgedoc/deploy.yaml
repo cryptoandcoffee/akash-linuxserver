@@ -26,7 +26,9 @@ services:
       - DB_PASS=<secret
       - DB_PORT=3306
       - DB_USER=hedgedoc
-      - PASSWORD=28510c59bc304b497b3c256ddb506d38
+      - PASSWORD=da255e39ad503a1e9e1061ddf9edb586
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=a8658b5f9fafb05d2dce77ffcc64a69f
+      - PASSWORD=575d04c633b2cce1e762e2b6dc620951
       - URL=http://google.com
 
 profiles:

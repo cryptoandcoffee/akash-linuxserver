@@ -16,7 +16,9 @@ services:
     env:
       - APP_PASSWORD=admin
       - APP_USERNAME=admin
-      - PASSWORD=805d203f8a7a9ba2c07ed70153abc6bf
+      - PASSWORD=f9a8a73d9e375f1c16b8fd670b77c28d
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

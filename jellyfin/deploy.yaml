@@ -34,8 +34,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=13cd53cfc979d9ee0d9740acbc80e056
+      - PASSWORD=67919857dc5fa78e8dc2bc0e3324cf30
       - JELLYFIN_PublishedServerUrl=192.168.0.5
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

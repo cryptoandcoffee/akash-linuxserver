@@ -46,9 +46,11 @@ services:
           - global: true
 
     env:
-      - PASSWORD=59e3ff8c3a23f98f17a0e1315e35bd93
+      - PASSWORD=38c983055058950f6fb6349d15189c03
       - MEM_LIMIT=1024
       - MEM_STARTUP=1024
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

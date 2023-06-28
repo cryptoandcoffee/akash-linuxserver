@@ -22,7 +22,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=9046201cb49b8625203185fac18930d7
+      - PASSWORD=18fae2c5b1765586c1fdfb541def31ee
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

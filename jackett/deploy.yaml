@@ -15,7 +15,9 @@ services:
 
     env:
       - AUTO_UPDATE=true
-      - PASSWORD=afd5865c6bcd0d9f5a5b7e823dd3adcc
+      - PASSWORD=66bfda304ffd69342d9f833c5dd38cf2
+      - PGID=1000
+      - PUID=1000
       - RUN_OPTS=
       - TZ=Etc/UTC
 

@@ -14,7 +14,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=22557450dc1eeb520abeed688773bacd
+      - PASSWORD=96645dba50a53246ad1cf27f2caf389a
+      - PGID=1000
+      - PUID=1000
       - SECRET_PATH=/pwndrop
       - TZ=Etc/UTC
 

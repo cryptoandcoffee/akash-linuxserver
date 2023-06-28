@@ -11,7 +11,9 @@ services:
 
     env:
       - FEED_LIMIT=5
-      - PASSWORD=88ca8ba57b03a9dea670c114ad4b5ca1
+      - PASSWORD=91db07f43c2735dfa7c384fbaee6fb54
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

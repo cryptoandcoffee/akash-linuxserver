@@ -15,7 +15,9 @@ services:
 
     env:
       - BASE_URL=/ombi
-      - PASSWORD=b34d302bb862e3b80c527d44690a720b
+      - PASSWORD=63aa54a5b2610f37ce41ba63c59269de
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

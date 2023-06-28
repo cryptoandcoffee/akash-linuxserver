@@ -20,7 +20,7 @@ services:
     env:
       - CERTFILE=
       - FERNETKEY=
-      - PASSWORD=b2d7d906596244e9e53b87efcd2e822a
+      - PASSWORD=65f76e0d4e0f5cdb242ca1c29858f07e
       - KEYFILE=
 
 profiles:

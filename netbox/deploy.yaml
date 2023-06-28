@@ -21,7 +21,9 @@ services:
       - DB_PASSWORD=
       - DB_PORT=
       - DB_USER=
-      - PASSWORD=b229b5beca9371a1975ff9eb87c9dec8
+      - PASSWORD=b803cc70aa2a934a57a27ecdfba2b1d8
+      - PGID=1000
+      - PUID=1000
       - REDIS_DB_CACHE=
       - REDIS_DB_TASK=
       - REDIS_HOST=

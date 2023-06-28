@@ -16,7 +16,9 @@ services:
     env:
       - CONNECTION_SECRET=
       - CONNECTION_TOKEN=
-      - PASSWORD=52659bc64eee0d806801b8d9f7bdc6e8
+      - PASSWORD=3bca27e04ed7ebde3bf319ea70664da7
+      - PGID=1000
+      - PUID=1000
       - SUDO_PASSWORD_HASH=
       - SUDO_PASSWORD=password
       - TZ=Etc/UTC

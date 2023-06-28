@@ -14,8 +14,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=f899ab78dc8d423608b3c631524738e2
+      - PASSWORD=cdafa38d141c729646d94e7437ee9ed3
       - HTTP_PROXY=IP:PORT
+      - PGID=1000
+      - PUID=1000
       - SOCKS_PROXY=IP:PORT
       - SOCKS_PROXY=localhost:1080
 

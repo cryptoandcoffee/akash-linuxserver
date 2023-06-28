@@ -19,7 +19,9 @@ services:
 
     env:
       - CHROME_CLI=https://www.linuxserver.io/
-      - PASSWORD=2def007d21bdc1dd13072b691dd70b9d
+      - PASSWORD=2730f0c13c65398b9fce47da6525cffd
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

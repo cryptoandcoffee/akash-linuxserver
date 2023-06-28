@@ -27,9 +27,11 @@ services:
       - EMAIL_HOST_USER=
       - EMAIL_PORT=
       - EMAIL_USE_TLS=
-      - PASSWORD=4f7397cd6f2e5cdceb10814d5c6dc8cb
+      - PASSWORD=4169db937ae24c275a6d3308b0b980b1
       - INTEGRATIONS_ALLOW_PRIVATE_IPS=
+      - PGID=1000
       - PING_EMAIL_DOMAIN=
+      - PUID=1000
       - REGENERATE_SETTINGS=
       - SECRET_KEY=
       - SITE_LOGO_URL=

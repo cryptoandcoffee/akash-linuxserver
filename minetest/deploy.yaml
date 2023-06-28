@@ -16,7 +16,9 @@ services:
     env:
       - CLI_ARGS="--gameid
       - CLI_ARGS=--gameid
-      - PASSWORD=35e15a2cd13ad9bc16f3996f582fd6e2
+      - PASSWORD=e1cdeab00b47951b75ffb9c1d00dff8d
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

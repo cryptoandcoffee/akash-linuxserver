@@ -21,9 +21,11 @@ services:
       - DB_PORT=DB_PORT
       - DB_TYPE=sqlite
       - DB_USERNAME=DB_USERNAME
-      - PASSWORD=b3d223caa83443ebad10f3cd0f2a6be0
+      - PASSWORD=85108645b3d3b72900bc987f899f140e
       - IPINFO_APIKEY=ACCESS_TOKEN
       - PASSWORD=PASSWORD
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

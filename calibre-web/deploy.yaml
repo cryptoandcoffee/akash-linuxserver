@@ -15,8 +15,10 @@ services:
 
     env:
       - DOCKER_MODS=linuxserver/mods:universal-calibre
-      - PASSWORD=8eadf4f5f7ef5465255fc4613146dd72
+      - PASSWORD=7c53c568ba6c425e1abf9eaac99328a3
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

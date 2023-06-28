@@ -19,8 +19,10 @@ services:
 
     env:
       - DOCKER_MODS=linuxserver/mods:universal-internationalization
-      - PASSWORD=68e7064326b217a8adba94b42a8cd20d
+      - PASSWORD=57e52074ff99172ce2272d805ef389c1
       - LC_ALL=zh_CN.UTF-8
+      - PGID=1000
+      - PUID=1000
       - SUBFOLDER=/
       - TITLE=Webtop
       - TZ=Etc/UTC

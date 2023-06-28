@@ -25,7 +25,7 @@ services:
       - DOCKER_HUB_PASSWORD=PASS
       - DOCKER_HUB_USERNAME=USER
       - DOCKER_MTU=1500
-      - PASSWORD=c7d0a104d276f2ac13d5ffaecb298b14
+      - PASSWORD=ded18e9b3870b91913164b9a31b897f7
       - KASM_PORT=443
 
 profiles:

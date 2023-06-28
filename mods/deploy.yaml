@@ -11,6 +11,8 @@ services:
 
     env:
       - DOCKER_MODS=taisun/nzbget-mod:latest
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

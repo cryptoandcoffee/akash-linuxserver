@@ -18,6 +18,10 @@ services:
           - global: true
 
     env:
+      - PGID=PGID
+      - PGID=gid
+      - PUID=PUID
+      - PUID=uid
       - TZ=TZ
       - TZ=timezone
 

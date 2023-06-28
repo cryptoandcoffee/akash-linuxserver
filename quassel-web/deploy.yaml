@@ -14,7 +14,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=c4f4e2a09ef33949090589e65e2ff133
+      - PASSWORD=f9c86201ef2da73f0ee931072cf233c5
+      - PGID=1000
+      - PUID=1000
       - QUASSEL_CORE=192.168.1.10
       - QUASSEL_PORT=4242
       - TZ=Etc/UTC

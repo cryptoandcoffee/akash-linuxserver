@@ -15,9 +15,11 @@ services:
 
     env:
       - CONTEXT_PATH=
-      - PASSWORD=ef9d40a551d84e8f2d82282ec2dbeb58
+      - PASSWORD=ff06ff28e92b975c5b6745d3ff088422
       - JAVA_OPTS=
       - JAVA_OPTS="-Xmx256m
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

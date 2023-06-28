@@ -20,7 +20,9 @@ services:
       - DB_PASS=<yourdbpass>
       - DB_PORT=<yourdbport>
       - DB_USER=<yourdbuser>
-      - PASSWORD=9c917c0ca7848b7c70d4628a079e5ac7
+      - PASSWORD=4f63c2ed2dd6887a622ba9411ba76dfa
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

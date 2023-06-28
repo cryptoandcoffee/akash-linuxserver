@@ -17,7 +17,7 @@ services:
       - AUTH_LIST=plexuser1,plexuser2,email1,machineid1
       - AUTOJOIN_ENABLED=false
       - AUTOJOIN_ROOM=roomname
-      - PASSWORD=b2a2a27df972cb47909256081a69fec8
+      - PASSWORD=4f3f988128f8ed6a1065eee05cb3e69b
 
 profiles:
   compute:

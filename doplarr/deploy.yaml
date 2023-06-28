@@ -13,7 +13,7 @@ services:
       - DISCORD__MAX_RESULTS=25
       - DISCORD__REQUESTED_MSG_STYLE=:plain
       - DISCORD__TOKEN=
-      - PASSWORD=c4c07caa5a03791cc3005a8276c19b5a
+      - PASSWORD=3436a13b241dffe2cb8e59035ee8cc82
       - JAVA_OPTS=
       - JAVA_OPTS="-Xmx256m
       - LOG_LEVEL=:info
@@ -21,6 +21,8 @@ services:
       - OVERSEERR__DEFAULT_ID=
       - OVERSEERR__URL=http://localhost:5055
       - PARTIAL_SEASONS=true
+      - PGID=1000
+      - PUID=1000
       - RADARR__API=
       - RADARR__QUALITY_PROFILE=
       - RADARR__ROOTFOLDER=

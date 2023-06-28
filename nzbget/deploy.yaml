@@ -14,9 +14,11 @@ services:
           - global: true
 
     env:
-      - PASSWORD=2406b8dc2f4c16aca4d1889c5ea5d32d
+      - PASSWORD=bf46e9c54d9e798852fc235f8603760c
       - NZBGET_PASS=tegbzn6789
       - NZBGET_USER=nzbget
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

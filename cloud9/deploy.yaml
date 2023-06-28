@@ -14,9 +14,11 @@ services:
           - global: true
 
     env:
-      - PASSWORD=94e8e8efa3c2757411713393a91a2fea
+      - PASSWORD=ec10cf5a0b80fd34c0963b3a32108a7a
       - GITURL=https://github.com/linuxserver/docker-cloud9.git
       - PASSWORD=
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
       - USERNAME=
 

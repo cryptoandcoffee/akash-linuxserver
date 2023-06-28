@@ -15,10 +15,12 @@ services:
 
     env:
       - DEFAULT_WORKSPACE=/config/workspace
-      - PASSWORD=5ea53cc5713da941026cfa222af04ac4
+      - PASSWORD=0fe81404c5387aca9405261d519af228
       - HASHED_PASSWORD=
       - PASSWORD=password
+      - PGID=1000
       - PROXY_DOMAIN=code-server.my.domain
+      - PUID=1000
       - SUDO_PASSWORD_HASH=
       - SUDO_PASSWORD=password
       - TZ=Etc/UTC

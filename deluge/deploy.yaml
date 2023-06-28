@@ -23,7 +23,9 @@ services:
 
     env:
       - DELUGE_LOGLEVEL=error
-      - PASSWORD=4f95ca00145529a326db526eff076d59
+      - PASSWORD=c75fe6ff5068f6dfcbf31aca14b87ccf
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

@@ -42,6 +42,10 @@ services:
           - global: true
 
     env:
+      - PGID=PGID
+      - PGID=<gid>
+      - PUID=PUID
+      - PUID=<uid>
 
 profiles:
   compute:

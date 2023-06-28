@@ -14,8 +14,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=1d9e25765ba4153f9ded51d061853c19
+      - PASSWORD=95c36b11b833f5f9cbd967b9dfbb7d5e
       - GITURL=https://github.com/linuxserver/docker-pylon.git
+      - PGID=1000
+      - PUID=1000
       - PYPASS=mypass
       - PYUSER=myuser
       - TZ=Etc/UTC

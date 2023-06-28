@@ -14,7 +14,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=e5227badf42885df2dcf6ac18266413b
+      - PASSWORD=5221f623b7b107b73df7b28e660337fc
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

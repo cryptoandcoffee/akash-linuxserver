@@ -16,6 +16,10 @@ services:
     env:
       - MYSQL_ROOT_PASSWORD=MYSQL_ROOT_PASSWORD
       - MYSQL_ROOT_PASSWORD=<DATABASE
+      - PGID=PGID
+      - PGID=<GID>
+      - PUID=PUID
+      - PUID=<UID>
 
 profiles:
   compute:

@@ -18,7 +18,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=120d1eeafad9ea63b2974aba0b44faec
+      - PASSWORD=78dfe970600284e341fbcd8f968499b5
+      - PGID=1000
+      - PUID=1000
       - SEC_KEY="<Your
       - SEC_KEY=<Your
       - TZ=Etc/UTC

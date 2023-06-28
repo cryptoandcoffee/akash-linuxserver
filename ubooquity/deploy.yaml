@@ -18,8 +18,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=6993be6e1221ec64baa06c2c5cb95e35
+      - PASSWORD=319d8db35abda7226809e4a7dfcc29e1
       - MAXMEM=
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

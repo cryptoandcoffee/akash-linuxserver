@@ -50,8 +50,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=d3af6f3d92c98c0b7d6eb8f847dc4969
+      - PASSWORD=97c75bcc5bbd3ee4e8c2fe5e98bd4603
+      - PGID=1000
       - PLEX_CLAIM=
+      - PUID=1000
       - TZ=Etc/UTC
       - VERSION=docker
 

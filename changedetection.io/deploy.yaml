@@ -15,7 +15,9 @@ services:
 
     env:
       - BASE_URL=
-      - PASSWORD=401196b9113393aaaa1a05cc7d6cf969
+      - PASSWORD=d8bcdeafe27265a764d2c015ff4e64b7
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

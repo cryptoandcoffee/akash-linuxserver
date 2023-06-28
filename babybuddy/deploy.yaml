@@ -15,7 +15,9 @@ services:
 
     env:
       - CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000,https://babybuddy.domain.com
-      - PASSWORD=2e06b3df354597f682e0c22ba4a33b30
+      - PASSWORD=fa835afb378855c00bd194778f1443ce
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

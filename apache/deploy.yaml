@@ -18,6 +18,8 @@ services:
           - global: true
 
     env:
+      - PGID=PGID
+      - PUID=PUID
 
 profiles:
   compute:

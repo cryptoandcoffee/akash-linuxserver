@@ -18,8 +18,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=ad4fb36fc16eaa78a39a1be81b8e3083
+      - PASSWORD=e20d8d7ab13a0ded6142e06b2c66b7d7
       - LOCAL_NET=192.168.0.0/16
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

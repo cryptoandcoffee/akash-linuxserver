@@ -20,7 +20,9 @@ services:
       - DB_PASSWORD=dbpassword
       - DB_PORT=3306
       - DB_USERNAME=lychee
-      - PASSWORD=19d5c877b7bcef628bd3ba55c23c3a00
+      - PASSWORD=0fd400e28e59d1c5e8dae69a5ef96cd9
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

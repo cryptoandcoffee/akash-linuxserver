@@ -24,7 +24,9 @@ services:
     env:
       - DBASE="<path
       - DBASE=<path
-      - PASSWORD=89ecc75425db4357cb27748244f40c94
+      - PASSWORD=c8ddb0654bc7a6cec8532c04ab1e12a7
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
       - WEBROOT=domoticz
 

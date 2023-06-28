@@ -15,10 +15,12 @@ services:
 
     env:
       - ENABLE_REGISTRATIONS=<true/false>
-      - PASSWORD=1c575eb96be0c8c50678899d8e462bbb
+      - PASSWORD=c0d4e27fa09652eaf9b1eb0c4c55f740
       - MYSQL_HOST=<mysql_host>
       - MYSQL_PASSWORD=<mysql_password>
       - MYSQL_USERNAME=<mysql_username>
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

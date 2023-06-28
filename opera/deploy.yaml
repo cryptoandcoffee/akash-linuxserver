@@ -18,8 +18,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=d0cbe26c8dfd59833d6cfc6b85c63be3
+      - PASSWORD=9f271279eca559096cf944d5dbe9e48f
       - OPERA_CLI=https://www.linuxserver.io/
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

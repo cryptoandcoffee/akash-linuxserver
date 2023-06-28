@@ -15,7 +15,9 @@ services:
 
     env:
       - CONFIGFILE=/config/adguardhome-sync.yaml
-      - PASSWORD=4407ba52ff5805592b96f38836ddedfb
+      - PASSWORD=01c166aa501a8ea9f61a3d86028fcafb
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

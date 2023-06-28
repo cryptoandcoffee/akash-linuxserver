@@ -18,7 +18,9 @@ services:
       - ES_PASS=changeme
       - ES_PORT=9200
       - ES_USER=elastic
-      - PASSWORD=fbbc90a13781d44f18ec83637fd84cac
+      - PASSWORD=a9ed5c09f06001ba959a9a0a62f295e4
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

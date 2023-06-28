@@ -14,11 +14,13 @@ services:
           - global: true
 
     env:
-      - PASSWORD=d720906327d03e537fb9c52fd77a4e37
+      - PASSWORD=028767c304ac013235e4f2da0da9e1f6
       - MYSQL_DATABASE=USER_DB_NAME
       - MYSQL_PASSWORD=DATABASE_PASSWORD
       - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
       - MYSQL_USER=MYSQL_USER
+      - PGID=1000
+      - PUID=1000
       - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql
       - TZ=Etc/UTC
 

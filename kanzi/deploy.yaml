@@ -14,8 +14,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=be8a3ba7402f5ae5b331c81c56e54732
+      - PASSWORD=a9318629554289d6e8ac0a4dbfc5cef3
       - INVOCATION_NAME=kanzi
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
       - URL_ENDPOINT=https://server.com/kanzi/
 

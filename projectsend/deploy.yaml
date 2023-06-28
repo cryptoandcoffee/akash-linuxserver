@@ -14,8 +14,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=4157c80da47e68570a5fc793773e03f3
+      - PASSWORD=daa11fa5583264dc30fab3c34cc486df
       - MAX_UPLOAD=5000
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

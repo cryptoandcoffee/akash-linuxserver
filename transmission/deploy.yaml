@@ -22,10 +22,12 @@ services:
           - global: true
 
     env:
-      - PASSWORD=f826554a4addc929aa2efb05375e16a5
+      - PASSWORD=c381f3d8257abce48dd83042b0c0aa1e
       - HOST_WHITELIST=
       - PASS=
       - PEERPORT=
+      - PGID=1000
+      - PUID=1000
       - TRANSMISSION_WEB_HOME=
       - TZ=Etc/UTC
       - USER=

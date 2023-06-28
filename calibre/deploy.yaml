@@ -23,8 +23,10 @@ services:
 
     env:
       - CLI_ARGS=
-      - PASSWORD=28752c0f98d6149cb79be7471b4c2bd3
+      - PASSWORD=fa581bc717975f8ba35ab7309c030b56
       - PASSWORD=
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

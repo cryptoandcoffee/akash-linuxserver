@@ -14,8 +14,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=282cd1c8293fff7edee0b334de244fd0
+      - PASSWORD=ad6bcc36e773b6ece368f070e75aa3c6
       - HISHTORY_POSTGRES_DB=postgresql://
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

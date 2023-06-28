@@ -15,7 +15,9 @@ services:
 
     env:
       - CONTEXT_PATH=url-base
-      - PASSWORD=f4bf8144b60a7a6b0dbb5318e8411428
+      - PASSWORD=3bfd5d1a0d56cad54c64e39d87818f89
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

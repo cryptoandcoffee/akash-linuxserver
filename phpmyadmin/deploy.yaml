@@ -14,9 +14,11 @@ services:
           - global: true
 
     env:
-      - PASSWORD=60999c6e2351eef12aaf5437a922a0bd
+      - PASSWORD=d3078419a20872f17d33e88de4e7624e
+      - PGID=1000
       - PMA_ABSOLUTE_URI=https://phpmyadmin.example.com
       - PMA_ARBITRARY=1
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

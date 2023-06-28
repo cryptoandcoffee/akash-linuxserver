@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=2c9918dd6d10e8b5df79b2f02dac8b6e
+      - PASSWORD=d7cd09aa8f5405cacb47b48b62ffd419
 
 profiles:
   compute:

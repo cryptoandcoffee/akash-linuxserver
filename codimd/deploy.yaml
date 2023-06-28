@@ -19,7 +19,9 @@ services:
       - DB_PASS=<secret
       - DB_PORT=3306
       - DB_USER=codimd
-      - PASSWORD=ac88e53837ab94c6102e7838fca4096f
+      - PASSWORD=c3b11bfc3e94363414117dd5dfa74b27
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

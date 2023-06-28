@@ -19,7 +19,9 @@ services:
       - EMAIL=
       - EXTRA_DOMAINS=
       - ONLY_SUBDOMAINS=false
+      - PGID=1000
       - PROPAGATION=
+      - PUID=1000
       - STAGING=false
       - SUBDOMAINS=www,
       - TZ=Etc/UTC

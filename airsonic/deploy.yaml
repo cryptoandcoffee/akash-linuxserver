@@ -15,9 +15,11 @@ services:
 
     env:
       - CONTEXT_PATH=<URL_BASE>
-      - PASSWORD=a9c0306a36029dc5f429c1be992a7344
+      - PASSWORD=b7a9e46b38c27ec641ba54c0e075fc12
       - JAVA_OPTS=<options>
       - JAVA_OPTS="-Xmx256m
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

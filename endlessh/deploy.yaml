@@ -15,11 +15,13 @@ services:
 
     env:
       - BINDFAMILY=
-      - PASSWORD=566d1b51414f0222c76d0be57f61745a
+      - PASSWORD=48906ff600306c51270e56a36ede4e1c
       - LOGFILE=false
       - MAXCLIENTS=4096
       - MAXLINES=32
       - MSDELAY=10000
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

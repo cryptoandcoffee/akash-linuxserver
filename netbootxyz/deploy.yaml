@@ -22,9 +22,11 @@ services:
           - global: true
 
     env:
-      - PASSWORD=0e51a6d39a114d320ca730ebafee3649
+      - PASSWORD=48dc757bef7321e407e48fd9bfb4d121
       - MENU_VERSION=1.9.9
+      - PGID=1000
       - PORT_RANGE=30000:30010
+      - PUID=1000
       - SUBFOLDER=/
       - TZ=Etc/UTC
 

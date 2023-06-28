@@ -68,6 +68,8 @@ services:
       - PEER_HOST=localhost
       - PEER_HOST=peering.linuxserver.io
       - PEER_HOST=peering.mydomain.com
+      - PGID=1000
+      - PUID=1000
       - TZ=Europe/London
 
 profiles:

@@ -24,7 +24,9 @@ services:
     env:
       - AUTH_AUTHENTICATOR=Database
       - DB_BACKEND=SQLite
-      - PASSWORD=f147b58d5dd1e0fd6dee3a7032d334db
+      - PASSWORD=1d414939fe37d9d9d787a0a0d328164f
+      - PGID=1000
+      - PUID=1000
       - RUN_OPTS='--config-from-environment'
       - RUN_OPTS=--config-from-environment
       - TZ=Etc/UTC

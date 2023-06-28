@@ -20,8 +20,10 @@ services:
     env:
       - APP_URL=http://localhost
       - CORS=http://localhost:80,https://localhost:443
-      - PASSWORD=e5608f7b668e4cf52111252adfee80f1
+      - PASSWORD=d55f7dd172823f199da3e739096aa085
       - MONGO_ENDPOINT=mongodb://mongo:27017/your_spotify
+      - PGID=1000
+      - PUID=1000
       - SPOTIFY_PUBLIC=
       - SPOTIFY_SECRET=
       - TZ=Etc/UTC

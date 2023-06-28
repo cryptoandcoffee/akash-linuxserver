@@ -26,7 +26,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=24d5cef8ab20a6f3a0b5bf20b2da740f
+      - PASSWORD=ab39fbf23ded63ad93257ef926f1710e
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
       - WEBUI_PORT=8080
       - WEBUI_PORT=8090

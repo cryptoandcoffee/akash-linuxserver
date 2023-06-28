@@ -15,7 +15,9 @@ services:
 
     env:
       - DEBUG_MODE=false
-      - PASSWORD=3237fc403b83e70151a2c906f47656bd
+      - PASSWORD=3f415c31865dee23a79a2dfc619692de
+      - PGID=1000
+      - PUID=1000
       - RATE_LIMIT=false
       - RTC_CONFIG=
       - TZ=Etc/UTC

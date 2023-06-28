@@ -22,7 +22,7 @@ services:
       - APP_ENV=
       - APP_LOCALE=
       - APP_URL=http://localhost:8080
-      - PASSWORD=7a8ec37c6a5f133deb06d4f88aa1e08f
+      - PASSWORD=310f104ca9f565a261ddba72f01ebe29
       - MAIL_ENV_ENCRYPTION=
       - MAIL_ENV_FROM_ADDR=
       - MAIL_ENV_FROM_NAME=
@@ -35,6 +35,8 @@ services:
       - MYSQL_PORT_3306_TCP_ADDR=
       - MYSQL_PORT_3306_TCP_PORT=
       - MYSQL_USER=
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

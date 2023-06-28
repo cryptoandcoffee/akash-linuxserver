@@ -10,8 +10,10 @@ services:
           - global: true
 
     env:
-      - PASSWORD=e929cb19d0ce63c586828b3a77216793
+      - PASSWORD=9c2ca0723c37f1c093d00d8813db90c0
       - LOG_FILE=false
+      - PGID=1000
+      - PUID=1000
       - SUBDOMAINS=subdomain1,subdomain2
       - TOKEN=token
       - TZ=Etc/UTC

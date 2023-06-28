@@ -20,7 +20,9 @@ services:
       - DB_PORT=
       - DB_TYPE=sqlite
       - DB_USER=
-      - PASSWORD=d3218dad17ebf21b9f82338999bfd4fb
+      - PASSWORD=aa82ae6672bb9bc922cca8cb75fa303a
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

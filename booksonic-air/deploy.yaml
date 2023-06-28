@@ -15,7 +15,9 @@ services:
 
     env:
       - CONTEXT_PATH=url-base
-      - PASSWORD=ec038f38e3038fb90d474de6032adde8
+      - PASSWORD=bdd05c70fe3e6efb34de9ee461b2956e
+      - PGID=1000
+      - PUID=1000
       - TZ=Etc/UTC
 
 profiles:

@@ -17,7 +17,7 @@ services:
       - AUTH_LIST=plexuser1,plexuser2,email1,machineid1
       - AUTOJOIN_ENABLED=false
       - AUTOJOIN_ROOM=roomname
-      - PASSWORD=a6cec62a2f8fa2393d2a0819b08b8b80
+      - PASSWORD=b2a2a27df972cb47909256081a69fec8
 
 profiles:
   compute:
@@ -31,8 +31,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

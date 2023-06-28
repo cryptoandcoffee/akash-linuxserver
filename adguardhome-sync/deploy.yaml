@@ -15,7 +15,7 @@ services:
 
     env:
       - CONFIGFILE=/config/adguardhome-sync.yaml
-      - PASSWORD=2dd8fac8c88725a3f9d5775b8471051f
+      - PASSWORD=4407ba52ff5805592b96f38836ddedfb
       - TZ=Etc/UTC
 
 profiles:
@@ -30,8 +30,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

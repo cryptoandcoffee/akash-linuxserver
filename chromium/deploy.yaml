@@ -19,7 +19,7 @@ services:
 
     env:
       - CHROME_CLI=https://www.linuxserver.io/
-      - PASSWORD=82b7b0a9a86dfc0982dd4f0896fd3bea
+      - PASSWORD=2def007d21bdc1dd13072b691dd70b9d
       - TZ=Etc/UTC
 
 profiles:
@@ -34,8 +34,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

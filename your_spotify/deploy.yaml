@@ -20,7 +20,7 @@ services:
     env:
       - APP_URL=http://localhost
       - CORS=http://localhost:80,https://localhost:443
-      - PASSWORD=f544dc720041863fc86958c842a0bde6
+      - PASSWORD=e5608f7b668e4cf52111252adfee80f1
       - MONGO_ENDPOINT=mongodb://mongo:27017/your_spotify
       - SPOTIFY_PUBLIC=
       - SPOTIFY_SECRET=
@@ -38,8 +38,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

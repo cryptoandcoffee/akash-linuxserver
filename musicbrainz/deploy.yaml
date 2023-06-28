@@ -15,7 +15,7 @@ services:
 
     env:
       - BRAINZCODE=<code
-      - PASSWORD=ee22f610b36398e38ec92f59ea21823c
+      - PASSWORD=65a3004fb02ba3b4c3732a889d66e87b
       - NPROC=<parameter>
       - TZ=Europe/London
       - WEBADDRESS=<ip
@@ -32,8 +32,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

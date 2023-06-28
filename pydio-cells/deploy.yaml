@@ -19,7 +19,7 @@ services:
 
     env:
       - EXTERNALURL=yourdomain.url
-      - PASSWORD=18ac2783c51056e78162156606571a45
+      - PASSWORD=49f2d48f574443f7aee2ca4d3ee364c4
       - SERVER_IP=0.0.0.0
       - TZ=Etc/UTC
 
@@ -35,8 +35,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

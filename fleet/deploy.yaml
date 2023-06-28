@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=4dd803c36b52197562d63c895801d4af
+      - PASSWORD=291236c7e7621fde0307c15dbd6efeee
       - fleet_admin_authentication_type=DATABASE
       - fleet_admin_secret=randomstring
       - fleet_database_password=dbuserpassword
@@ -34,8 +34,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

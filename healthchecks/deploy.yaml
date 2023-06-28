@@ -27,7 +27,7 @@ services:
       - EMAIL_HOST_USER=
       - EMAIL_PORT=
       - EMAIL_USE_TLS=
-      - PASSWORD=78292e403f6856b5d91c703939713a05
+      - PASSWORD=4f7397cd6f2e5cdceb10814d5c6dc8cb
       - INTEGRATIONS_ALLOW_PRIVATE_IPS=
       - PING_EMAIL_DOMAIN=
       - REGENERATE_SETTINGS=
@@ -51,8 +51,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

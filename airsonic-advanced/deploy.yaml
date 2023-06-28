@@ -15,7 +15,7 @@ services:
 
     env:
       - CONTEXT_PATH=
-      - PASSWORD=fdbca41c96e114e9b1e2efbba446f0b7
+      - PASSWORD=ef9d40a551d84e8f2d82282ec2dbeb58
       - JAVA_OPTS=
       - JAVA_OPTS="-Xmx256m
       - TZ=Etc/UTC
@@ -32,8 +32,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

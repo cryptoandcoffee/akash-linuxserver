@@ -21,7 +21,8 @@ services:
       - DB_PORT=DB_PORT
       - DB_TYPE=sqlite
       - DB_USERNAME=DB_USERNAME
-      - PASSWORD=0d0e65dc8b4e705f20d7a8873dc1012e
+      - PASSWORD=b3d223caa83443ebad10f3cd0f2a6be0
+      - IPINFO_APIKEY=ACCESS_TOKEN
       - PASSWORD=PASSWORD
       - TZ=Etc/UTC
 
@@ -37,8 +38,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

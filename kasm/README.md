@@ -95,6 +95,10 @@ In order to properly create virtual Gamepads you will need to mount from your ho
 
 In order to use persistant profiles in Workspaces you will need to mount in a folder to use from your host to `/profiles`. From there when configuring a workspace you can set the `Persistant Profile Path` to IE `/profiles/ubuntu-focal/{username}/`, more infomation can be found [HERE](https://www.kasmweb.com/docs/latest/how_to/persistent_profiles.html).
 
+### Reverse proxy
+
+A sample for [SWAG](https://github.com/linuxserver/docker-swag) can be found [here](https://raw.githubusercontent.com/linuxserver/reverse-proxy-confs/master/kasm.subdomain.conf.sample). Post installation you will need to modify the "Proxy Port" setting under the default zone to 0 as outlined [here](https://www.kasmweb.com/docs/latest/how_to/reverse_proxy.html#update-zones) to launch Workspaces sessions.
+
 ### Strict reverse proxies
 
 This image uses a self-signed certificate by default. This naturally means the scheme is `https`.
@@ -118,6 +122,7 @@ services:
       - KASM_PORT=443
       - DOCKER_HUB_USERNAME=USER #optional
       - DOCKER_HUB_PASSWORD=PASS #optional
+      - DOCKER_MTU=1500 #optional
     volumes:
       - /path/to/data:/opt
       - /path/to/profiles:/profiles #optional
@@ -138,6 +143,7 @@ docker run -d \
   -e KASM_PORT=443 \
   -e DOCKER_HUB_USERNAME=USER `#optional` \
   -e DOCKER_HUB_PASSWORD=PASS `#optional` \
+  -e DOCKER_MTU=1500 `#optional` \
   -p 3000:3000 \
   -p 443:443 \
   -v /path/to/data:/opt \
@@ -160,6 +166,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e KASM_PORT=443` | Specify the port you bind to the outside for Kasm Workspaces. |
 | `-e DOCKER_HUB_USERNAME=USER` | Optionally specify a DockerHub Username to pull private images. |
 | `-e DOCKER_HUB_PASSWORD=PASS` | Optionally specify a DockerHub password to pull private images. |
+| `-e DOCKER_MTU=1500` | Optionally specify the mtu options passed to dockerd. |
 | `-v /opt` | Docker and installation storage. |
 | `-v /profiles` | Optionally specify a path for persistent profile storage. |
 | `-v /dev/input` | Optional for gamepad support. |

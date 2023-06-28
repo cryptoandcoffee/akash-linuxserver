@@ -1,0 +1,34 @@
+version: "2.0"
+
+services:
+  build-agent:
+    image: linuxserver/build-agent
+    expose:
+
+    env:
+
+profiles:
+  compute:
+    build-agent:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        build-agent:
+          denom: uakt
+          amount: 100000
+deployment:
+  build-agent:
+    akash:
+      profile: build-agent
+      count: 1

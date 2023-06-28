@@ -10,7 +10,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=465be0a4b2f3bb26ab36b5f0b12a1720
+      - PASSWORD=e929cb19d0ce63c586828b3a77216793
       - LOG_FILE=false
       - SUBDOMAINS=subdomain1,subdomain2
       - TOKEN=token
@@ -28,8 +28,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

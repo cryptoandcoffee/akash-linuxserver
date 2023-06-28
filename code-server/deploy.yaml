@@ -15,7 +15,7 @@ services:
 
     env:
       - DEFAULT_WORKSPACE=/config/workspace
-      - PASSWORD=c0824e550719a45e1b72fe517b1a1c25
+      - PASSWORD=5ea53cc5713da941026cfa222af04ac4
       - HASHED_PASSWORD=
       - PASSWORD=password
       - PROXY_DOMAIN=code-server.my.domain
@@ -35,8 +35,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

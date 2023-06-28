@@ -22,7 +22,7 @@ services:
       - APP_ENV=
       - APP_LOCALE=
       - APP_URL=http://localhost:8080
-      - PASSWORD=6333735efb1446017aa148396c6642fa
+      - PASSWORD=7a8ec37c6a5f133deb06d4f88aa1e08f
       - MAIL_ENV_ENCRYPTION=
       - MAIL_ENV_FROM_ADDR=
       - MAIL_ENV_FROM_NAME=
@@ -49,8 +49,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

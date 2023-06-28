@@ -24,7 +24,7 @@ services:
     env:
       - AUTH_AUTHENTICATOR=Database
       - DB_BACKEND=SQLite
-      - PASSWORD=ff9958324d55f327c32cb96e59c9d50d
+      - PASSWORD=f147b58d5dd1e0fd6dee3a7032d334db
       - RUN_OPTS='--config-from-environment'
       - RUN_OPTS=--config-from-environment
       - TZ=Etc/UTC
@@ -42,8 +42,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

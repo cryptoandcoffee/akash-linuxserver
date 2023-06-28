@@ -15,7 +15,7 @@ services:
 
     env:
       - BASE_URL=/ombi
-      - PASSWORD=35c69d6c1dff73fa129a6aa48662ad19
+      - PASSWORD=b34d302bb862e3b80c527d44690a720b
       - TZ=Etc/UTC
 
 profiles:
@@ -30,8 +30,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

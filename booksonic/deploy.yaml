@@ -15,7 +15,7 @@ services:
 
     env:
       - CONTEXT_PATH=url-base
-      - PASSWORD=9ebda94d13b4892a9c6496889be94f22
+      - PASSWORD=f4bf8144b60a7a6b0dbb5318e8411428
       - TZ=Europe/London
 
 profiles:
@@ -30,8 +30,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

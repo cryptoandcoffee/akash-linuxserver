@@ -13,7 +13,7 @@ services:
       - DISCORD__MAX_RESULTS=25
       - DISCORD__REQUESTED_MSG_STYLE=:plain
       - DISCORD__TOKEN=
-      - PASSWORD=89472c1168814cd5e1df6730dae9c690
+      - PASSWORD=c4c07caa5a03791cc3005a8276c19b5a
       - JAVA_OPTS=
       - JAVA_OPTS="-Xmx256m
       - LOG_LEVEL=:info
@@ -44,8 +44,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

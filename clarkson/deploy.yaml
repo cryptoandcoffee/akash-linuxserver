@@ -15,7 +15,7 @@ services:
 
     env:
       - ENABLE_REGISTRATIONS=<true/false>
-      - PASSWORD=56e382097fca39209fb4229988f2910c
+      - PASSWORD=1c575eb96be0c8c50678899d8e462bbb
       - MYSQL_HOST=<mysql_host>
       - MYSQL_PASSWORD=<mysql_password>
       - MYSQL_USERNAME=<mysql_username>
@@ -33,8 +33,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

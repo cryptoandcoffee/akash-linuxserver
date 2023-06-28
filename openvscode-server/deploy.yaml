@@ -16,7 +16,7 @@ services:
     env:
       - CONNECTION_SECRET=
       - CONNECTION_TOKEN=
-      - PASSWORD=4efb1f112b93f0c994e4d1ba88e69240
+      - PASSWORD=52659bc64eee0d806801b8d9f7bdc6e8
       - SUDO_PASSWORD_HASH=
       - SUDO_PASSWORD=password
       - TZ=Etc/UTC
@@ -33,8 +33,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

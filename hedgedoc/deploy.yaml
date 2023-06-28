@@ -26,7 +26,7 @@ services:
       - DB_PASS=<secret
       - DB_PORT=3306
       - DB_USER=hedgedoc
-      - PASSWORD=1f20d9b933805e0b35b47fd22ebf521c
+      - PASSWORD=28510c59bc304b497b3c256ddb506d38
       - TZ=Etc/UTC
 
 profiles:
@@ -41,8 +41,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

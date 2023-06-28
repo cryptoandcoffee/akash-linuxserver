@@ -1,0 +1,49 @@
+version: "2.0"
+
+services:
+  opera:
+    image: linuxserver/opera
+    expose:
+      - port: 3000
+        as: 3000
+        to:
+          - global: true
+      - port: 3001
+        as: 3001
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=d0cbe26c8dfd59833d6cfc6b85c63be3
+      - OPERA_CLI=https://www.linuxserver.io/
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    opera:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        opera:
+          denom: uakt
+          amount: 100000
+deployment:
+  opera:
+    akash:
+      profile: opera
+      count: 1

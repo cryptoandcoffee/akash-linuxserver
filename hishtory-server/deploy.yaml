@@ -1,0 +1,45 @@
+version: "2.0"
+
+services:
+  hishtory-server:
+    image: linuxserver/hishtory-server
+    expose:
+      - port: 8080
+        as: 8080
+        to:
+          - global: true
+      - port: 80
+        as: 80
+        to:
+          - global: true
+
+    env:
+      - PASSWORD=282cd1c8293fff7edee0b334de244fd0
+      - HISHTORY_POSTGRES_DB=postgresql://
+      - TZ=Etc/UTC
+
+profiles:
+  compute:
+    hishtory-server:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 2.5Gi
+        storage:
+          size: 32Gi
+  placement:
+    akash:
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+          - "akash18qa2a2ltfyvkyj0ggj3hkvuj6twzyumuaru9s4"
+      pricing:
+        hishtory-server:
+          denom: uakt
+          amount: 100000
+deployment:
+  hishtory-server:
+    akash:
+      profile: hishtory-server
+      count: 1

@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=5fc75a5bf8e74899bff65fc578c08ea4
+      - PASSWORD=1d9e25765ba4153f9ded51d061853c19
       - GITURL=https://github.com/linuxserver/docker-pylon.git
       - PYPASS=mypass
       - PYUSER=myuser
@@ -32,8 +32,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

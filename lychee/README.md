@@ -60,7 +60,7 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
-| armhf | ✅ | arm32v7-\<version tag\> |
+| armhf | ❌ | |
 
 ## Application Setup
 
@@ -68,6 +68,23 @@ The architectures supported by this image are:
 
 Setup mysql/mariadb and account via the webui, accessible at http://SERVERIP:PORT
 More info at [lychee](https://lycheeorg.github.io/).
+
+### Customization
+
+In certain scenarios, you might need to change the default settings of Lychee. For instance, if you encounter limitations when uploading large files, you can increase this limit.
+
+#### Increasing Upload Limit
+
+The upload limit is defined in the `user.ini` file located in the config directory (`/config`). You can increase this limit by modifying the following values:
+
+```ini
+post_max_size = 500M
+upload_max_filesize = 500M
+```
+
+After making these changes, you'll need to restart the Docker container for the changes to take effect. Here's how to do it:
+
+**Please note that these changes might have implications on your server's performance, depending on its available resources. Thus, it's recommended to modify these settings with caution.**
 
 ## Usage
 
@@ -102,11 +119,12 @@ services:
       - /path/to/config:/config
       - /path/to/pictures:/pictures
     environment:
+      - DB_CONNECTION=mysql
       - DB_HOST=mariadb
+      - DB_PORT=3306
       - DB_USERNAME=lychee
       - DB_PASSWORD=dbpassword
       - DB_DATABASE=lychee
-      - DB_PORT=3306
       - PGID=1000
       - PUID=1000
       - TZ=Europe/London
@@ -123,6 +141,7 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Etc/UTC \
+  -e DB_CONNECTION=mysql \
   -e DB_HOST=mariadb \
   -e DB_PORT=3306 \
   -e DB_USERNAME=lychee \
@@ -146,6 +165,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
+| `-e DB_CONNECTION=mysql` | for specifying the database type |
 | `-e DB_HOST=mariadb` | for specifying the database host |
 | `-e DB_PORT=3306` | for specifying the database port |
 | `-e DB_USERNAME=lychee` | for specifying the database user |
@@ -263,6 +283,8 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **25.05.23:** - Rebase to Alpine 3.18, deprecate armhf.
+* **13.04.23:** - Move ssl.conf include to default.conf.
 * **11.01.23:** - Rebasing to alpine 3.17 with php8.1. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)). Switch to git clone as builds fail with the release artifact.
 * **13.05.21:** - Make readme clearer.
 * **18.04.21:** - Add php-intl for v4.3.

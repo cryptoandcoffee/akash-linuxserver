@@ -50,7 +50,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=03d57a06b6f583438a5f3aa498b678e4
+      - PASSWORD=d3af6f3d92c98c0b7d6eb8f847dc4969
       - PLEX_CLAIM=
       - TZ=Etc/UTC
       - VERSION=docker
@@ -67,8 +67,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

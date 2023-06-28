@@ -31,7 +31,7 @@ services:
       - ES_PASS=elastic
       - ES_PORT=9200
       - ES_USER=elastic
-      - PASSWORD=98dd71fa0c5278d654c6a193465d4335
+      - PASSWORD=b7ac8bdf4ab514d0158d63867a50f4f7
       - LOCAL_DOMAIN=example.com
       - OTP_SECRET=
       - REDIS_HOST=redis
@@ -66,8 +66,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

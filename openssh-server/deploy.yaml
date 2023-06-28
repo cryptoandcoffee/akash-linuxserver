@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=61494126f39a9bd5c7730639388bdad6
+      - PASSWORD=15906591cc0d0f6b230df8e3622a86ec
       - PASSWORD_ACCESS=false
       - PUBLIC_KEY_DIR=/path/to/directory/containing/_only_/pubkeys
       - PUBLIC_KEY_FILE=/path/to/file
@@ -38,8 +38,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

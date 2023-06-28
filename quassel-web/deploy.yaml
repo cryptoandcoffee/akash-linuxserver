@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=5be9fda8d9501ec6e4f65f5d503b5b4c
+      - PASSWORD=c4f4e2a09ef33949090589e65e2ff133
       - QUASSEL_CORE=192.168.1.10
       - QUASSEL_PORT=4242
       - TZ=Etc/UTC
@@ -32,8 +32,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

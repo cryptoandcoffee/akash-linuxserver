@@ -15,7 +15,7 @@ services:
 
     env:
       - DOCKER_MODS=linuxserver/mods:universal-calibre
-      - PASSWORD=e5c1e6aca09a0db74bb64e0869e55c3f
+      - PASSWORD=8eadf4f5f7ef5465255fc4613146dd72
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1
       - TZ=Etc/UTC
 
@@ -31,8 +31,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

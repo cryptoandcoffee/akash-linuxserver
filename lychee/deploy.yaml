@@ -14,12 +14,13 @@ services:
           - global: true
 
     env:
+      - DB_CONNECTION=mysql
       - DB_DATABASE=lychee
       - DB_HOST=mariadb
       - DB_PASSWORD=dbpassword
       - DB_PORT=3306
       - DB_USERNAME=lychee
-      - PASSWORD=702d314d377bf65e202ca6b44a75813e
+      - PASSWORD=19d5c877b7bcef628bd3ba55c23c3a00
       - TZ=Etc/UTC
 
 profiles:
@@ -34,8 +35,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

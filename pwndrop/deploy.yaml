@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=5ad39c35364efdb83ec2523d95cee97d
+      - PASSWORD=22557450dc1eeb520abeed688773bacd
       - SECRET_PATH=/pwndrop
       - TZ=Etc/UTC
 
@@ -30,8 +30,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

@@ -14,13 +14,13 @@ services:
           - global: true
 
     env:
-      - APP_URL=
+      - APP_URL=<yourbaseurl>
       - DB_DATABASE=bookstackapp
       - DB_HOST=<yourdbhost>
       - DB_PASS=<yourdbpass>
       - DB_PORT=<yourdbport>
       - DB_USER=<yourdbuser>
-      - PASSWORD=57d4e6ced44595d76bdca39a5a805bc8
+      - PASSWORD=9c917c0ca7848b7c70d4628a079e5ac7
       - TZ=Etc/UTC
 
 profiles:
@@ -35,8 +35,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

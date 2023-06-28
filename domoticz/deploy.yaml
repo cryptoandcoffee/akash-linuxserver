@@ -24,7 +24,7 @@ services:
     env:
       - DBASE="<path
       - DBASE=<path
-      - PASSWORD=24c8acebd9a26aabc16e0fca960f990c
+      - PASSWORD=89ecc75425db4357cb27748244f40c94
       - TZ=Etc/UTC
       - WEBROOT=domoticz
 
@@ -40,8 +40,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

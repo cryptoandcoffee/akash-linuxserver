@@ -18,7 +18,9 @@ services:
           - global: true
 
     env:
-      - PASSWORD=d3e8c4eb06e8534a7afa6d6f1c8f9530
+      - DOCKER_MODS=linuxserver/mods:universal-internationalization
+      - PASSWORD=68e7064326b217a8adba94b42a8cd20d
+      - LC_ALL=zh_CN.UTF-8
       - SUBFOLDER=/
       - TITLE=Webtop
       - TZ=Etc/UTC
@@ -35,8 +37,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

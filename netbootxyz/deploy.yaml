@@ -22,7 +22,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=3125f7f970f2a113efa9e9e955937ce5
+      - PASSWORD=0e51a6d39a114d320ca730ebafee3649
       - MENU_VERSION=1.9.9
       - PORT_RANGE=30000:30010
       - SUBFOLDER=/
@@ -40,8 +40,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

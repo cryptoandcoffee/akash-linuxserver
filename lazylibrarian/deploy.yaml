@@ -15,7 +15,7 @@ services:
 
     env:
       - DOCKER_MODS=linuxserver/calibre-web:calibre|linuxserver/mods:lazylibrarian-ffmpeg
-      - PASSWORD=86b9b77d110bae308457833273f0afcc
+      - PASSWORD=0ce3a1c12dca0cf0a8d607c8f92278c3
       - TZ=Etc/UTC
 
 profiles:
@@ -30,8 +30,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

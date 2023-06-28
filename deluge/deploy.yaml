@@ -23,7 +23,7 @@ services:
 
     env:
       - DELUGE_LOGLEVEL=error
-      - PASSWORD=244ed68c8731c45709bf894f496b3e80
+      - PASSWORD=4f95ca00145529a326db526eff076d59
       - TZ=Etc/UTC
 
 profiles:
@@ -38,8 +38,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

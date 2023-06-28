@@ -21,7 +21,7 @@ services:
       - DB_PASSWORD=
       - DB_PORT=
       - DB_USER=
-      - PASSWORD=c80220cf2bf884495225c7540ed55499
+      - PASSWORD=b229b5beca9371a1975ff9eb87c9dec8
       - REDIS_DB_CACHE=
       - REDIS_DB_TASK=
       - REDIS_HOST=
@@ -49,8 +49,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

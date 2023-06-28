@@ -46,7 +46,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=b89f0519f1940fdcef88158c85ee4599
+      - PASSWORD=59e3ff8c3a23f98f17a0e1315e35bd93
       - MEM_LIMIT=1024
       - MEM_STARTUP=1024
       - TZ=Etc/UTC
@@ -63,8 +63,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

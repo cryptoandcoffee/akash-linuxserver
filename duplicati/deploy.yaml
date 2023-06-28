@@ -15,7 +15,7 @@ services:
 
     env:
       - CLI_ARGS=
-      - PASSWORD=c360fec329e62eefc551c23b62ebdc87
+      - PASSWORD=f35037f3835b04c072110f1d096a384a
       - TZ=Etc/UTC
 
 profiles:
@@ -30,8 +30,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

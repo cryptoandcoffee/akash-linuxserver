@@ -18,7 +18,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=9c5f06a46c71f9fbdc7a155db4510314
+      - PASSWORD=ad4fb36fc16eaa78a39a1be81b8e3083
       - LOCAL_NET=192.168.0.0/16
       - TZ=Etc/UTC
 
@@ -34,8 +34,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

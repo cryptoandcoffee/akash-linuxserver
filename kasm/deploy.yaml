@@ -24,7 +24,8 @@ services:
     env:
       - DOCKER_HUB_PASSWORD=PASS
       - DOCKER_HUB_USERNAME=USER
-      - PASSWORD=12367188ce3484b382553386ee987dad
+      - DOCKER_MTU=1500
+      - PASSWORD=c7d0a104d276f2ac13d5ffaecb298b14
       - KASM_PORT=443
 
 profiles:
@@ -39,8 +40,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

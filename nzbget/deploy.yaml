@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=33f939c09ac72587c98cb6151c588c1e
+      - PASSWORD=2406b8dc2f4c16aca4d1889c5ea5d32d
       - NZBGET_PASS=tegbzn6789
       - NZBGET_USER=nzbget
       - TZ=Europe/London
@@ -31,8 +31,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

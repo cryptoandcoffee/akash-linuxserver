@@ -18,7 +18,7 @@ services:
       - ES_PASS=changeme
       - ES_PORT=9200
       - ES_USER=elastic
-      - PASSWORD=8a51079325fda284b50f6019c85edfb6
+      - PASSWORD=fbbc90a13781d44f18ec83637fd84cac
       - TZ=Etc/UTC
 
 profiles:
@@ -33,8 +33,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

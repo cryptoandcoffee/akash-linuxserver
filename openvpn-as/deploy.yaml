@@ -22,7 +22,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=1dfd4ab09865361ee3b2266eb95069fe
+      - PASSWORD=b5b060dfeb7c93e9851bdb9a4458f270
       - INTERFACE=eth0
       - TZ=Europe/London
 
@@ -38,8 +38,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=69dd91d0cace827b100a33ef7d91a736
+      - PASSWORD=d720906327d03e537fb9c52fd77a4e37
       - MYSQL_DATABASE=USER_DB_NAME
       - MYSQL_PASSWORD=DATABASE_PASSWORD
       - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
@@ -34,8 +34,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

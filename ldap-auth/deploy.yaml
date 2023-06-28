@@ -20,7 +20,7 @@ services:
     env:
       - CERTFILE=
       - FERNETKEY=
-      - PASSWORD=d4e48e6096cec348ea890dc2a35cd31d
+      - PASSWORD=b2d7d906596244e9e53b87efcd2e822a
       - KEYFILE=
 
 profiles:
@@ -35,8 +35,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

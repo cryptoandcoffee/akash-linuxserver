@@ -16,7 +16,7 @@ services:
     env:
       - APP_PASSWORD=admin
       - APP_USERNAME=admin
-      - PASSWORD=25cc4d49b25b9a261c3289a239059dc3
+      - PASSWORD=805d203f8a7a9ba2c07ed70153abc6bf
       - TZ=Europe/London
 
 profiles:
@@ -31,8 +31,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=807e26eba2bc0e72755746e598145a0a
+      - PASSWORD=2ae923d34ca4615b7eaea84456efb769
       - REDIS_URL=
       - TZ=America/New_York
 
@@ -30,8 +30,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

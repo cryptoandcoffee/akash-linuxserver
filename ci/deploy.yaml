@@ -11,6 +11,8 @@ services:
       - CI_S6_VERBOSITY=<optional,
       - DELAY_START=<optional,
       - DOCKER_ENV="<optional,
+      - DOCKER_LOGS_DELAY=<optional,
+      - DRY_RUN=<optional,
       - IMAGE="linuxserver/<dockerimage>"
       - META_TAG=<manifest
       - PORT=<optional,
@@ -36,8 +38,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

@@ -22,7 +22,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=79049591b50fc4b54c8204b8e2a7b823
+      - PASSWORD=f826554a4addc929aa2efb05375e16a5
       - HOST_WHITELIST=
       - PASS=
       - PEERPORT=
@@ -43,8 +43,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

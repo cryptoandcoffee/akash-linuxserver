@@ -11,7 +11,7 @@ services:
 
     env:
       - FEED_LIMIT=5
-      - PASSWORD=40d4ab250a2d18e4f87882db71998f87
+      - PASSWORD=88ca8ba57b03a9dea670c114ad4b5ca1
       - TZ=Etc/UTC
 
 profiles:
@@ -26,8 +26,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

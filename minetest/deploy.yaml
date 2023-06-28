@@ -16,7 +16,7 @@ services:
     env:
       - CLI_ARGS="--gameid
       - CLI_ARGS=--gameid
-      - PASSWORD=d924e0c51cfa5ac500fc61fff8f05846
+      - PASSWORD=35e15a2cd13ad9bc16f3996f582fd6e2
       - TZ=Etc/UTC
 
 profiles:
@@ -31,8 +31,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

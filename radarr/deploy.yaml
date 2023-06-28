@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=0096013e1cfa58cd0e53a459a413fff5
+      - PASSWORD=74dfc676a15e0a77e8544daa6c2f83aa
       - TZ=Etc/UTC
 
 profiles:
@@ -29,8 +29,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

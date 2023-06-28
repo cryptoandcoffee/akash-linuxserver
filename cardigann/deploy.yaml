@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=889de9481dc415d81157c84b89673c89
+      - PASSWORD=f899ab78dc8d423608b3c631524738e2
       - HTTP_PROXY=IP:PORT
       - SOCKS_PROXY=IP:PORT
       - SOCKS_PROXY=localhost:1080
@@ -31,8 +31,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

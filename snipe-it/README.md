@@ -94,7 +94,7 @@ The application accepts a series of environment variables to further customize i
 This image uses our NGINX base image all configuration files for PHP and NGINX are located in `/config/php`. To overide any defaults please modify `/config/php/php-local.ini` IE for upload size: 
 
 ```
-upload_max_filesize = 16
+upload_max_filesize = 16M
 post_max_size = 16M
 ```
 
@@ -276,6 +276,8 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **13.04.23:** - Move ssl.conf include to default.conf.
+* **13.04.23:** - Add php81-pecl-redis for redis support.
 * **28.12.22:** - Rebase to Alpine 3.17, migrate to s6v3.
 * **20.08.22:** - Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
 * **14.05.22:** - Add php7-sodium for v6.

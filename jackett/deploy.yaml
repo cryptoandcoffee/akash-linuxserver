@@ -15,7 +15,7 @@ services:
 
     env:
       - AUTO_UPDATE=true
-      - PASSWORD=e48e2367a212df31dbebb8cb23619888
+      - PASSWORD=afd5865c6bcd0d9f5a5b7e823dd3adcc
       - RUN_OPTS=
       - TZ=Etc/UTC
 
@@ -31,8 +31,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

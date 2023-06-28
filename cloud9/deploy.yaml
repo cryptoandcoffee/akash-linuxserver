@@ -14,7 +14,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=b6efbe006f13e04ea25c314d19d530fd
+      - PASSWORD=94e8e8efa3c2757411713393a91a2fea
       - GITURL=https://github.com/linuxserver/docker-cloud9.git
       - PASSWORD=
       - TZ=Europe/London
@@ -32,8 +32,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

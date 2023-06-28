@@ -19,7 +19,7 @@ services:
       - DB_PASS=<secret
       - DB_PORT=3306
       - DB_USER=codimd
-      - PASSWORD=6ff98fda697666846400ffcb989e2d74
+      - PASSWORD=ac88e53837ab94c6102e7838fca4096f
       - TZ=Europe/London
 
 profiles:
@@ -34,8 +34,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"

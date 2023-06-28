@@ -58,27 +58,19 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
-| armhf | ✅ | arm32v7-\<version tag\> |
+| armhf | ❌ | |
 
 ## Application Setup
 
 Access the webui at `https://<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).
 
-Docker image update and recreation of container alone won't update nextcloud version. 
+### Updating Nextcloud
 
-In order to update nextcloud version, you have two options, firstly make sure you are using the latest docker image,then either 
+Updating Nextcloud is done by pulling the new image, and recreating the container with it.
 
-1.  Perform the in app gui update. 
-2.  Use the CLI version by running `docker exec -it nextcloud updater.phar`
- (Both of these are described [here](https://docs.nextcloud.com/server/latest/admin_manual/maintenance/update.html))
+It is only possible to upgrade one major version at a time. For example, if you want to upgrade from version 14 to 16, you will have to upgrade from version 14 to 15, then from 15 to 16.
 
-Note:  Both `occ` and `updater.phar` can be run without prepending with `sudo -u abc php` or `sudo -u www-data php`
-
-If you are not customizing our default nginx configuration you will need to remove the file:
-```
-/config/nginx/site-confs/default.conf
-```
-Then restart the container to replace it with the latest one. 
+Since all data is stored in the `/config` and `/data` volumes, nothing gets lost. The startup script will check for the version in your volume and the installed docker version. If it finds a mismatch, it automatically starts the upgrade process.
 
 ### Collaborative Editing
 
@@ -254,6 +246,10 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **25.06.23:** - Move Nextcloud installation inside container. Remove CLI updater. [See changes announcement](https://info.linuxserver.io/issues/2023-06-25-nextcloud/).
+* **21.06.23:** - Existing users should update `/config/nginx/site-confs/default.conf` - Security fix for real ip settings.
+* **25.05.23:** - Rebase to Alpine 3.18, deprecate armhf.
+* **13.04.23:** - Move ssl.conf include to default.conf.
 * **21.03.23:** - Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``.
 * **02.03.23:** - Set permissions on crontabs during init.
 * **20.01.23:** - Rebase to alpine 3.17 with php8.1.

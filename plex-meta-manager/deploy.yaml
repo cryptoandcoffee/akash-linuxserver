@@ -10,7 +10,7 @@ services:
           - global: true
 
     env:
-      - PASSWORD=50c7bb15b646dc09e4770dd29622ea9a
+      - PASSWORD=9eb63ce68c67aa84330e4e73b8dbd89a
       - PMM_CONFIG=/config/config.yml
       - PMM_NO_MISSING=False
       - PMM_RUN=False
@@ -31,8 +31,6 @@ profiles:
           size: 32Gi
   placement:
     akash:
-      attributes:
-        host: akash
       signedBy:
         anyOf:
           - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
